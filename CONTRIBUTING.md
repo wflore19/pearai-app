@@ -1,11 +1,13 @@
 # 🎉 Contributing to PearAI
 
 ## Table of Contents
+
 - [🎉 Contributing to PearAI](#-contributing-to-pearai)
 - [🚀 Getting Started](#-getting-started)
 - [🛠 Prerequisites](#-prerequisites)
 - [🌟 Contributing Workflow](#-contributing-workflow)
 - [💻 Automated Testing](#-automated-testing)
+- [🐛 Debugging UI](#-debugging-ui)
 - [🔍 Linting](#-linting)
 - [🌿 Work Branches](#-work-branches)
 - [📜 Pull Requests](#-pull-requests)
@@ -76,7 +78,6 @@ To rebuild the app after initial setup:
 
 - [./extensions/pearai-submodule](https://github.com/trypear/pearai-submodule): Nearly all of PearAI's functionality, packaged as a built-in VSCode/PearAI extension. It is a fork of Continue, and is a git submodule of pearai-app. Most contributions will end up here!
 
-
 #### A) PearAI Submodule / Extension
 
 1. Open the directory `extensions/pearai-submodule` in PearAI or VSCode.
@@ -97,16 +98,19 @@ To rebuild the app after initial setup:
    yarn tsc-watch
    ```
 3. Open another terminal to run the app:
+
    - **macOS and Linux**:
      ```bash
      ./scripts/code.sh
      ```
    - **Windows**:
+
      - If first time installing, you must run:
 
        ```bat
        .\scripts\code.bat
        ```
+
      - On consecutive runs, we recommend downloading Git Bash, and running:
 
        ```bash
@@ -120,6 +124,48 @@ To rebuild the app after initial setup:
 Run the unit tests directly from a terminal by running `./scripts/test.sh` from the `pearai-app` folder (`scripts	est` on Windows).
 
 We also have automated UI tests. The [smoke test README](https://github.com/Microsoft/vscode/blob/main/test/smoke/README.md) has all the details.
+
+## 🐛 Debugging UI
+
+### Using the Chrome Developer Tools
+
+Run the `Developer: Toggle Developer Tools` command from the Command Palette in your development instance of VS Code to launch the Chrome tools.
+
+![Chrome Dev Tools in PearAI](./assets/chrome-dev-tools.png)
+
+### VS Code for the Web
+
+Extensions and UI run in the browser.
+
+👉 Besides yarn watch also run yarn watch-web to build the web bits for the built-in extensions.
+
+macOS and Linux
+
+```
+./scripts/code-web.sh
+```
+
+Windows
+
+```
+.\scripts\code-web.bat
+```
+
+### Code Server Web
+
+UI in the browser, extensions run in code server (NodeJS):
+
+macOS and Linux
+
+```
+./scripts/code-server.sh --launch
+```
+
+Windows
+
+```
+.\scripts\code-server.bat --launch
+```
 
 ## 🔍 Linting
 
